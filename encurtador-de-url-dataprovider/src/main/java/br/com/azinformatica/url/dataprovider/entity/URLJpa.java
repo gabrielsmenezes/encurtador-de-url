@@ -1,6 +1,6 @@
-package br.com.azinformatica.usuario.dataprovider.entity;
+package br.com.azinformatica.url.dataprovider.entity;
 
-import br.com.azinformatica.usuario.domain.entity.ModeloEmail;
+import br.com.azinformatica.url.domain.entity.URL;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,21 +18,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "MODELO_EMAIL")
 @SequenceGenerator(name = "SEQ_MODELO_EMAIL", sequenceName = "SEQ_MODELO_EMAIL")
-public class ModeloEmailJpa {
+public class URLJpa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_MODELO_EMAIL")
     private Long id;
-    private String chave;
-    private String remetente;
-    private String assunto;
-    private String corpo;
 
-    public ModeloEmail to() {
-        return ModeloEmail.creator()
-                .chave(this.chave)
-                .remetente(this.remetente)
-                .assunto(this.assunto)
-                .corpo(this.corpo)
-                .create();
+    private String urlEncurtada;
+
+    private String urlNaoEncurtada;
+
+    public URL to(){
+        return URL
+                .builder()
+                .urlEncurtada(this.urlEncurtada)
+                .urlNaoEncurtada(this.urlNaoEncurtada)
+                .build();
     }
 }
