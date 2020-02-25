@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,18 +17,20 @@ import javax.persistence.Table;
 @Setter
 @EqualsAndHashCode
 @Entity
-@Table(name = "MODELO_EMAIL")
-@SequenceGenerator(name = "SEQ_MODELO_EMAIL", sequenceName = "SEQ_MODELO_EMAIL")
+@Table(name = "URL_JPA")
+@SequenceGenerator(name = "SEQ_URL_JPA", sequenceName = "SEQ_URL_JPA")
 public class URLJpa {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_MODELO_EMAIL")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_URL_JPA")
     private Long id;
 
+    @Column(name = "UJ_URL_ENCURTADA")
     private String urlEncurtada;
 
+    @Column(name = "UJ_URL_NAO_ENCURTADA")
     private String urlNaoEncurtada;
 
-    public URL to(){
+    public URL to() {
         return URL
                 .builder()
                 .urlEncurtada(this.urlEncurtada)
