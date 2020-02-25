@@ -13,11 +13,11 @@
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
     <modules>
-        <module>usuario-domain</module>
-        <module>usuario-dataprovider</module>
-        <module>usuario-entrypoint</module>
-        <module>usuario-utils</module>
-        <module>usuario-application</module>
+        <module>encurtador-de-url-domain</module>
+        <module>encurtador-de-url-dataprovider</module>
+        <module>encurtador-de-url-entrypoint</module>
+        <module>encurtador-de-url-utils</module>
+        <module>encurtador-de-url-application</module>
     </modules>
     <dependencyManagement>
         <dependencies>
