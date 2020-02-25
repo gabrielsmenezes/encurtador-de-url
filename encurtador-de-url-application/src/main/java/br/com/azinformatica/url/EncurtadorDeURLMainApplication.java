@@ -1,13 +1,13 @@
-package br.com.azinformatica.usuario;
+package br.com.azinformatica.url;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UsuarioMainApplication {
+public class EncurtadorDeURLMainApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UsuarioMainApplication.class, args);
+        SpringApplication.run(EncurtadorDeURLMainApplication.class, args);
     }
 
 }
