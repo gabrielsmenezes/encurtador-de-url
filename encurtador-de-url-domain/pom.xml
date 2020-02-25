@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>br.com.azinformatica</groupId>
-        <artifactId>usuario</artifactId>
+        <artifactId>encurtador-de-url</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>usuario-domain</artifactId>
-    <name>usuario-domain</name>
+    <artifactId>encurtador-de-url-domain</artifactId>
+    <name>encurtador-de-url-domain</name>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>

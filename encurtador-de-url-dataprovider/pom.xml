@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>br.com.azinformatica</groupId>
-        <artifactId>usuario</artifactId>
+        <artifactId>encurtador-de-url</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>usuario-dataprovider</artifactId>
-    <name>usuario-dataprovider</name>
+    <artifactId>encurtador-de-url-dataprovider</artifactId>
+    <name>encurtador-de-url-dataprovider</name>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -25,7 +25,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>usuario-domain</artifactId>
+            <artifactId>encurtador-de-url-domain</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
