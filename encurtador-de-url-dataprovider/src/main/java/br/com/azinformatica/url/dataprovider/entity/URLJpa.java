@@ -33,8 +33,13 @@ public class URLJpa {
     public URL to() {
         return URL
                 .builder()
+                .id(this.id)
                 .urlEncurtada(this.urlEncurtada)
                 .urlNaoEncurtada(this.urlNaoEncurtada)
                 .build();
+    }
+
+    public void from(URL url) {
+        this.urlNaoEncurtada = url.getUrlNaoEncurtada();
     }
 }

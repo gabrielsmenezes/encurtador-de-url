@@ -22,18 +22,3 @@ spring:
       settings:
         trace: false
         web-allow-others: false
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: <usuario>
-    password: <senha>
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-            required: true
-          ssl:
-            enable: false
-    test-connection: true

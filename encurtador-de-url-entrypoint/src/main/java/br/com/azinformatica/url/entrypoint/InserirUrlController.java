@@ -1,6 +1,7 @@
 package br.com.azinformatica.url.entrypoint;
 
 import br.com.azinformatica.url.domain.port.entrypoint.dto.InserirURLRequest;
+import br.com.azinformatica.url.domain.port.entrypoint.dto.InserirURLResponse;
 import br.com.azinformatica.url.domain.port.entrypoint.usecase.InserirURLUseCase;
 import br.com.azinformatica.url.entrypoint.factory.InserirUrlRequestFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,8 @@ public class InserirUrlController {
     public ResponseEntity<?> inserirUrl(@RequestBody Map<String, Object> body){
         InserirURLRequest request = inserirUrlRequestFactory.create(body);
 
-        inserirURLUseCase.execute(request);
+        InserirURLResponse response = inserirURLUseCase.execute(request);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(response);
     }
 }

@@ -1,5 +1,7 @@
 package br.com.azinformatica.url.domain.port.dataprovider;
 
-public interface URLDataProvider {
+import br.com.azinformatica.url.domain.entity.URL;
 
+public interface URLDataProvider {
+    URL salvar(URL url);
 }

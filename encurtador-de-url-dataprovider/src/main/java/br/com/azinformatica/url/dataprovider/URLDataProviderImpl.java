@@ -17,4 +17,12 @@ public class URLDataProviderImpl implements URLDataProvider {
         URLJpa urlJpa = urlRepository.findById(id).get();
         return urlJpa.to();
     }
+
+    @Override
+    public URL salvar(URL url) {
+        URLJpa unsaved = new URLJpa();
+        unsaved.from(url);
+        URLJpa saved = urlRepository.save(unsaved);
+        return saved.to();
+    }
 }
