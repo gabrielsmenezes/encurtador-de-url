@@ -6,6 +6,9 @@ import br.com.azinformatica.url.domain.port.entrypoint.dto.InserirURLRequest;
 import br.com.azinformatica.url.domain.port.entrypoint.dto.InserirURLResponse;
 import br.com.azinformatica.url.domain.port.entrypoint.usecase.InserirURLUseCase;
 
+import java.util.Objects;
+import java.util.Random;
+
 public class InserirURLUseCaseImpl implements InserirURLUseCase {
 
     private URLDataProvider urlDataProvider;
@@ -21,8 +24,9 @@ public class InserirURLUseCaseImpl implements InserirURLUseCase {
                 .urlNaoEncurtada(request.getUrlNaoEncurtada())
                 .build();
 
+        url.setUrlEncurtada(geraUrlValida());
+
         url = urlDataProvider.salvar(url);
-        url.setUrlEncurtada(encode(url.getId()));
 
         return InserirURLResponse
                 .builder()
@@ -32,15 +36,22 @@ public class InserirURLUseCaseImpl implements InserirURLUseCase {
                 .build();
     }
 
-    public static String encode(Long num) {
-        int novoNum = Math.toIntExact(num);
+    private String geraUrlValida() {
+        String codigoValido;
+        do {
+            codigoValido = geraUrl();
+        } while (Objects.nonNull(urlDataProvider.buscarPorUrlEncurtada(codigoValido)));
+        return codigoValido;
+    }
+
+    public static String geraUrl() {
         String alfabeto = "0123456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         int tamanho = alfabeto.length();
-
+        int contador= 0;
         StringBuilder str = new StringBuilder();
-        while (novoNum > 0) {
-            str.insert(0, alfabeto.charAt(novoNum % tamanho));
-            novoNum = novoNum / tamanho;
+        while (contador < 6) {
+            str.insert(0, alfabeto.charAt(new Random().nextInt(tamanho)));
+            contador++;
         }
         return str.toString();
     }

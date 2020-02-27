@@ -41,5 +41,6 @@ public class URLJpa {
 
     public void from(URL url) {
         this.urlNaoEncurtada = url.getUrlNaoEncurtada();
+        this.urlEncurtada = url.getUrlEncurtada();
     }
 }

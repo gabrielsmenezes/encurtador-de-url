@@ -7,6 +7,8 @@ import br.com.azinformatica.url.domain.port.dataprovider.URLDataProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 @Component
 public class URLDataProviderImpl implements URLDataProvider {
 
@@ -24,5 +26,11 @@ public class URLDataProviderImpl implements URLDataProvider {
         unsaved.from(url);
         URLJpa saved = urlRepository.save(unsaved);
         return saved.to();
+    }
+
+    @Override
+    public URL buscarPorUrlEncurtada(String urlEncurtada) {
+        URLJpa urlJpa = urlRepository.findURLJpaByUrlEncurtada(urlEncurtada).orElse(null);
+        return Objects.isNull(urlJpa) ? null : urlJpa.to();
     }
 }
