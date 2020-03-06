@@ -5,16 +5,19 @@ import br.com.azinformatica.url.domain.port.dataprovider.URLDataProvider;
 import br.com.azinformatica.url.domain.port.entrypoint.dto.InserirURLRequest;
 import br.com.azinformatica.url.domain.port.entrypoint.dto.InserirURLResponse;
 import br.com.azinformatica.url.domain.port.entrypoint.usecase.InserirURLUseCase;
+import br.com.azinformatica.url.domain.port.utils.GeradorDeUrl;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class InserirURLUseCaseImpl implements InserirURLUseCase {
 
     private URLDataProvider urlDataProvider;
 
-    public InserirURLUseCaseImpl(URLDataProvider urlDataProvider) {
+    private GeradorDeUrl geradorDeUrl;
+
+    public InserirURLUseCaseImpl(URLDataProvider urlDataProvider, GeradorDeUrl geradorDeUrl) {
         this.urlDataProvider = urlDataProvider;
+        this.geradorDeUrl = geradorDeUrl;
     }
 
     @Override
@@ -39,21 +42,9 @@ public class InserirURLUseCaseImpl implements InserirURLUseCase {
     private String geraUrlValida() {
         String codigoValido;
         do {
-            codigoValido = geraUrl();
+            codigoValido = geradorDeUrl.geraUrl();
         } while (Objects.nonNull(urlDataProvider.buscarPorUrlEncurtada(codigoValido)));
         return codigoValido;
-    }
-
-    public static String geraUrl() {
-        String alfabeto = "0123456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        int tamanho = alfabeto.length();
-        int contador= 0;
-        StringBuilder str = new StringBuilder();
-        while (contador < 6) {
-            str.insert(0, alfabeto.charAt(new Random().nextInt(tamanho)));
-            contador++;
-        }
-        return str.toString();
     }
 
 }

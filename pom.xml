@@ -17,6 +17,7 @@
         <module>encurtador-de-url-dataprovider</module>
         <module>encurtador-de-url-entrypoint</module>
         <module>encurtador-de-url-application</module>
+        <module>encurtador-de-url-utils</module>
     </modules>
     <dependencyManagement>
         <dependencies>
