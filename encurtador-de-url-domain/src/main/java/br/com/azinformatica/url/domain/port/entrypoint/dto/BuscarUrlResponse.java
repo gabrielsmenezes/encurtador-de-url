@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class InserirURLResponse implements Response {
+public class BuscarUrlResponse implements Response {
     private Long id;
     private String urlNaoEncurtada;
     private String urlEncurtada;

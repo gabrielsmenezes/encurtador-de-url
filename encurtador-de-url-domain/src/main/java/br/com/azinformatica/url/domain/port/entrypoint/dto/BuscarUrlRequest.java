@@ -8,6 +8,6 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class InserirURLRequest implements Request {
-    private String urlNaoEncurtada;
+public class BuscarUrlRequest implements Request {
+    private String urlEncurtada;
 }
